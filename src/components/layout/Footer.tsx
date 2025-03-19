@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
               <span className="text-frost-400">pay</span>
             </a>
             <p className="text-gray-400 mb-6 max-w-xs">
-              Powering smarter financial decisions with innovative mutual fund-backed lending solutions.
+              Affordable EMIs through revolutionary savings backed lending options.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
@@ -38,6 +38,7 @@ export const Footer: React.FC = () => {
               <li><a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
               <li><a href="#benefits" className="text-gray-400 hover:text-white transition-colors">Benefits</a></li>
               <li><a href="#faqs" className="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+              <li><a href="#partners" className="text-gray-400 hover:text-white transition-colors">For Partners</a></li>
             </ul>
           </div>
 
@@ -46,8 +47,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms & Conditions</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Security</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lending Partner</a></li>
+              {/*<li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lending Partner</a></li>*/}
             </ul>
           </div>
 
@@ -57,13 +57,13 @@ export const Footer: React.FC = () => {
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="text-gray-400" />
                 <a href="mailto:contact@splytpay.com" className="text-gray-400 hover:text-white transition-colors">
-                  contact@splytpay.com
+                  contact@splytpay.in
                 </a>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="text-gray-400" />
                 <a href="tel:+9100000000" className="text-gray-400 hover:text-white transition-colors">
-                  +91 0000 0000
+                  +91 9739916725
                 </a>
               </li>
             </ul>
