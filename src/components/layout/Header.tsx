@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -143,6 +144,13 @@ export const Header: React.FC = () => {
                 </Link>
               )
             ))}
+            <Link
+              to="/privacy-policy"
+              className="px-4 py-3 text-base font-medium text-midnight-800 hover:text-splyt-600 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Privacy Policy
+            </Link>
             <Button 
               className="mt-2 bg-gradient hover:opacity-90"
               onClick={() => setMobileMenuOpen(false)}
