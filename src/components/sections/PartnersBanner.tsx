@@ -45,15 +45,14 @@ export const PartnersBanner: React.FC = () => {
             Industry Leaders
           </div>
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-midnight-800">The</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-midnight-800">Trusted by the</h2>
             <AnimatedGradientText
               element="h2"
               className="text-2xl md:text-3xl font-bold"
               animated={false}
             >
-              GOOD
+              BEST
             </AnimatedGradientText>
-            <h2 className="text-2xl md:text-3xl font-bold text-midnight-800">Partnership</h2>
           </div>
         </div>
 
@@ -65,7 +64,7 @@ export const PartnersBanner: React.FC = () => {
                 <img 
                   src={partner.logo} 
                   alt={`${partner.name} logo`} 
-                  className="h-14 md:h-16 lg:h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  className="h-16 w-auto object-contain transition-all duration-300"
                 />
               </div>
             ))}
@@ -81,7 +80,7 @@ export const PartnersBanner: React.FC = () => {
                       <img 
                         src={partner.logo} 
                         alt={`${partner.name} logo`} 
-                        className="h-12 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                        className="h-12 w-auto object-contain transition-all duration-300"
                       />
                     </div>
                   </CarouselItem>
