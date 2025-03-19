@@ -1,4 +1,6 @@
+
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
@@ -10,6 +12,8 @@ import Calculator from "@/components/sections/Calculator";
 import FAQSection from "@/components/sections/FAQSection";
 
 const Index = () => {
+  const location = useLocation();
+
   useEffect(() => {
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -26,6 +30,18 @@ const Index = () => {
         }
       });
     });
+
+    // Handle hash in URL for direct navigation to sections
+    if (location.hash) {
+      // Small timeout to ensure all elements are properly loaded
+      setTimeout(() => {
+        const sectionId = location.hash.replace('#', '');
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
 
     // Add scroll-based animations
     const handleScroll = () => {
@@ -45,7 +61,7 @@ const Index = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [location]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

@@ -1,8 +1,22 @@
 
 import React from "react";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 export const Footer: React.FC = () => {
+  const location = useLocation();
+
+  const handleSectionLink = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const sectionId = href.replace('#', '');
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="bg-midnight-950 text-white py-16">
       <div className="container mx-auto px-4 md:px-6">
@@ -34,11 +48,47 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
-              <li><a href="#benefits" className="text-gray-400 hover:text-white transition-colors">Benefits</a></li>
-              <li><a href="#faqs" className="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
-              <li><a href="#partners" className="text-gray-400 hover:text-white transition-colors">For Partners</a></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
+              <li>
+                {location.pathname === '/' ? (
+                  <a href="#how-it-works" 
+                     className="text-gray-400 hover:text-white transition-colors"
+                     onClick={(e) => handleSectionLink(e, '#how-it-works')}>
+                    How It Works
+                  </a>
+                ) : (
+                  <Link to="/#how-it-works" className="text-gray-400 hover:text-white transition-colors">
+                    How It Works
+                  </Link>
+                )}
+              </li>
+              <li>
+                {location.pathname === '/' ? (
+                  <a href="#benefits" 
+                     className="text-gray-400 hover:text-white transition-colors"
+                     onClick={(e) => handleSectionLink(e, '#benefits')}>
+                    Benefits
+                  </a>
+                ) : (
+                  <Link to="/#benefits" className="text-gray-400 hover:text-white transition-colors">
+                    Benefits
+                  </Link>
+                )}
+              </li>
+              <li>
+                {location.pathname === '/' ? (
+                  <a href="#faqs" 
+                     className="text-gray-400 hover:text-white transition-colors"
+                     onClick={(e) => handleSectionLink(e, '#faqs')}>
+                    FAQs
+                  </a>
+                ) : (
+                  <Link to="/#faqs" className="text-gray-400 hover:text-white transition-colors">
+                    FAQs
+                  </Link>
+                )}
+              </li>
+              <li><Link to="/partners" className="text-gray-400 hover:text-white transition-colors">For Partners</Link></li>
             </ul>
           </div>
 

@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavItems = [
   { label: "Home", href: "/" },
@@ -18,6 +17,7 @@ const NavItems = [
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +31,22 @@ export const Header: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (href: string) => {
+    setMobileMenuOpen(false);
+    
+    if (href.startsWith('/#')) {
+      // If we're already on the homepage, just scroll to the section
+      if (location.pathname === '/') {
+        const sectionId = href.replace('/#', '');
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      // Otherwise, we'll let the normal navigation happen and the useEffect in Index.tsx will handle scrolling
+    }
+  };
 
   return (
     <header
@@ -60,6 +76,12 @@ export const Header: React.FC = () => {
                 key={item.label}
                 href={item.href}
                 className="px-4 py-2 text-sm font-medium text-midnight-800 hover:text-splyt-600 transition-colors"
+                onClick={(e) => {
+                  if (location.pathname === '/') {
+                    e.preventDefault();
+                    handleNavClick(item.href);
+                  }
+                }}
               >
                 {item.label}
               </a>
@@ -68,6 +90,7 @@ export const Header: React.FC = () => {
                 key={item.label}
                 to={item.href}
                 className="px-4 py-2 text-sm font-medium text-midnight-800 hover:text-splyt-600 transition-colors"
+                onClick={() => handleNavClick(item.href)}
               >
                 {item.label}
               </Link>
@@ -100,7 +123,12 @@ export const Header: React.FC = () => {
                   key={item.label}
                   href={item.href}
                   className="px-4 py-3 text-base font-medium text-midnight-800 hover:text-splyt-600 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    if (location.pathname === '/') {
+                      e.preventDefault();
+                      handleNavClick(item.href);
+                    }
+                  }}
                 >
                   {item.label}
                 </a>
@@ -109,7 +137,7 @@ export const Header: React.FC = () => {
                   key={item.label}
                   to={item.href}
                   className="px-4 py-3 text-base font-medium text-midnight-800 hover:text-splyt-600 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => handleNavClick(item.href)}
                 >
                   {item.label}
                 </Link>
