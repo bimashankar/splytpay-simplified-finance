@@ -97,11 +97,13 @@ export const Header: React.FC = () => {
               </Link>
             )
           ))}
+          {/*
           <Button 
             className="ml-2 bg-gradient hover:opacity-90"
           >
             Get Started
           </Button>
+          */}
         </nav>
 
         {/* Mobile Menu Button */}

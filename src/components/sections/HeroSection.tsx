@@ -16,10 +16,11 @@ export const HeroSection: React.FC = () => {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+          {/*
           <div className="inline-block px-3 py-1 rounded-full bg-splyt-50 text-splyt-700 text-sm font-medium mb-6 animate-fade-down">
             Simplified Finance
           </div>
-          
+          */}
           <AnimatedGradientText
             element="h1"
             className="text-4xl sm:text-5xl md:text-6xl leading-tight mb-6 animate-fade-down animation-delay-100"
@@ -33,6 +34,7 @@ export const HeroSection: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-down animation-delay-300">
+            {/*
             <Button 
               size="lg"
               className="bg-gradient hover:opacity-90 px-8"
@@ -40,8 +42,8 @@ export const HeroSection: React.FC = () => {
               <Calculator className="mr-2 h-4 w-4" />
               Calculate your limit
             </Button>
-            
-            <Button 
+            */}
+            <Button
               variant="outline" 
               size="lg"
               className="border-splyt-200 hover:bg-splyt-50"

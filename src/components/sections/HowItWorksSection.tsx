@@ -70,7 +70,7 @@ export const HowItWorksSection: React.FC = () => {
             </div>
           ))}
         </div>
-
+        {/*
         <div className="text-center mt-12">
           <Button 
             size="lg"
@@ -79,6 +79,7 @@ export const HowItWorksSection: React.FC = () => {
             Start Your Application Today
           </Button>
         </div>
+        */}
       </div>
     </section>
   );
