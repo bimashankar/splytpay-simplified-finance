@@ -44,9 +44,15 @@ export const HeroSection: React.FC = () => {
             </Button>
             */}
             <Button
-              variant="outline" 
+              variant="default" 
               size="lg"
-              className="border-splyt-200 hover:bg-splyt-50"
+              className="bg-primary hover:bg-primary/90"
+              onClick={() => {
+                const howItWorksSection = document.getElementById('how-it-works');
+                if (howItWorksSection) {
+                  howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Learn More
               <ArrowRight className="ml-2 h-4 w-4" />
