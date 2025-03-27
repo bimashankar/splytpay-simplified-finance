@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { GlassmorphicCard } from "@/components/ui/GlassmorphicCard";
 import { AnimatedGradientText } from "@/components/ui/AnimatedGradientText";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Building, ArrowRight } from "lucide-react";
 
 const faqs = [
@@ -44,6 +44,14 @@ const faqs = [
 ];
 
 export const FAQSection: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handlePartnerClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/partners');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <section id="faqs" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
@@ -92,13 +100,11 @@ export const FAQSection: React.FC = () => {
             <Button 
               size="lg"
               className="bg-gradient hover:opacity-90"
-              asChild
+              onClick={handlePartnerClick}
             >
-              <Link to="/partners#">
-                <Building className="mr-2 h-4 w-4" />
-                Become a Partner
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              <Building className="mr-2 h-4 w-4" />
+              Become a Partner
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
