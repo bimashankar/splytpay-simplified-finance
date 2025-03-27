@@ -94,7 +94,7 @@ export const FAQSection: React.FC = () => {
               className="bg-gradient hover:opacity-90"
               asChild
             >
-              <Link to="/partners">
+              <Link to="/partners#">
                 <Building className="mr-2 h-4 w-4" />
                 Become a Partner
                 <ArrowRight className="ml-2 h-4 w-4" />
