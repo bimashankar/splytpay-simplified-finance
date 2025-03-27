@@ -9,7 +9,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { GlassmorphicCard } from "@/components/ui/GlassmorphicCard";
 import { AnimatedGradientText } from "@/components/ui/AnimatedGradientText";
-import { MessageSquare } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Building, ArrowRight } from "lucide-react";
 
 const faqs = [
   {
@@ -67,7 +68,7 @@ export const FAQSection: React.FC = () => {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <GlassmorphicCard className="mb-8">
+          <GlassmorphicCard className="mb-16">
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
@@ -82,14 +83,22 @@ export const FAQSection: React.FC = () => {
             </Accordion>
           </GlassmorphicCard>
 
-          <div className="text-center">
-            <p className="text-lg mb-4">Have more questions?</p>
+          {/* Partner CTA Section */}
+          <div className="text-center bg-gradient-to-r from-splyt-50 to-frost-50 p-8 rounded-lg shadow-sm">
+            <h3 className="text-2xl font-bold mb-3">Are you a business looking to offer better payment options?</h3>
+            <p className="text-lg mb-6 max-w-2xl mx-auto">
+              Join our growing network of partners and help your customers access affordable EMIs at the lowest interest rates.
+            </p>
             <Button 
               size="lg"
               className="bg-gradient hover:opacity-90"
+              asChild
             >
-              <MessageSquare className="mr-2 h-4 w-4" />
-              Contact Us
+              <Link to="/partners">
+                <Building className="mr-2 h-4 w-4" />
+                Become a Partner
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>
